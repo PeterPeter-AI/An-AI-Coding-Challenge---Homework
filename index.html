@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flashcards App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <h1>🃏 FlipStack</h1>
+    <button id="newDeckBtn">+ New Deck</button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar">
+      <h2>My Decks</h2>
+      <ul id="deckList"></ul>
+    </nav>
+    <main id="main">
+      <div id="welcomeMsg">
+        <h2>Welcome!</h2>
+        <p>Create a deck to get started.</p>
+      </div>
+      <div id="deckView" style="display:none">
+        <h2 id="deckTitle"></h2>
+        <div class="toolbar">
+          <input type="search" id="searchInput" placeholder="Search cards..." />
+          <button id="shuffleBtn">⇌ Shuffle</button>
+          <button id="newCardBtn">+ New Card</button>
+          <button id="editDeckBtn">✎ Edit</button>
+          <button id="deleteDeckBtn">🗑 Delete Deck</button>
+        </div>
+        <div id="cardArea">
+          <div id="noCardsMsg"><p>No cards yet. Add one!</p></div>
+          <div id="studyArea" style="display:none">
+            <p id="cardCounter"></p>
+            <div id="flashcard" class="card">
+              <div class="card-inner" id="cardInner">
+                <div class="card-front"><p id="frontText"></p></div>
+                <div class="card-back"><p id="backText"></p></div>
+              </div>
+            </div>
+            <div class="nav-btns">
+              <button id="prevBtn">← Prev</button>
+              <button id="flipBtn">Flip</button>
+              <button id="nextBtn">Next →</button>
+            </div>
+            <div class="card-actions">
+              <button id="editCardBtn">✎ Edit Card</button>
+              <button id="deleteCardBtn">🗑 Delete Card</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <p>Space = flip &nbsp;|&nbsp; ← → = navigate &nbsp;|&nbsp; Esc = close</p>
+  </footer>
+
+  <!-- Deck Modal -->
+  <div id="deckModal" class="modal" style="display:none">
+    <div class="modal-box">
+      <h2 id="deckModalTitle">New Deck</h2>
+      <label for="deckNameInput">Deck Name</label>
+      <input type="text" id="deckNameInput" placeholder="e.g. Spanish Vocab" />
+      <p class="error" id="deckError"></p>
+      <div class="modal-btns">
+        <button id="deckCancelBtn">Cancel</button>
+        <button id="deckSaveBtn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card Modal -->
+  <div id="cardModal" class="modal" style="display:none">
+    <div class="modal-box">
+      <h2 id="cardModalTitle">New Card</h2>
+      <label for="cardFrontInput">Front</label>
+      <textarea id="cardFrontInput" placeholder="Question or term..."></textarea>
+      <label for="cardBackInput">Back</label>
+      <textarea id="cardBackInput" placeholder="Answer or definition..."></textarea>
+      <p class="error" id="cardError"></p>
+      <div class="modal-btns">
+        <button id="cardCancelBtn">Cancel</button>
+        <button id="cardSaveBtn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirm Modal -->
+  <div id="confirmModal" class="modal" style="display:none">
+    <div class="modal-box">
+      <h2>Are you sure?</h2>
+      <p id="confirmMsg"></p>
+      <div class="modal-btns">
+        <button id="confirmCancelBtn">Cancel</button>
+        <button id="confirmOkBtn">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
